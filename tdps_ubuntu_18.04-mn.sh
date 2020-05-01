@@ -228,8 +228,9 @@ done
     tradeplus_coin-cli stop
     sleep 5
 cd ~/.tradeplus_coin/ && rm -rf blocks chainstate sporks zerocoin
-cd ~/.tradeplus_coin/ && wget https://github.com/tdpsdevextreme/TradePlusCoin/releases/download/v1.0/bootstrap.zip
-cd ~/.tradeplus_coin/ && unzip bootstrap.zip	
+cd ~/.tradeplus_coin/ && wget http://138.68.245.239/bootstrap.tar.gz
+cd ~/.tradeplus_coin/ && tar -xzvf bootstrap.tar.gz
+cd ~/.tradeplus_coin/ && rm -rf bootstrap.tar.gz	
 # Create tradeplus_coin.conf
 cat <<EOF > ~/.tradeplus_coin/tradeplus_coin.conf
 rpcuser=$rpcuser
