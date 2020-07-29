@@ -42,3 +42,21 @@ When Node is Fully Synced enter the command below to check the masternode status
 `tradeplus_coin-cli getmasternodestatus`
 
 You will get Masternode Successfully Started
+
+# Guide for tdps-mn-updater.sh:
+
+For **Ubuntu 16.04**
+```
+wget -q https://raw.githubusercontent.com/tdpsdevextreme/MasterNodeSetup/master/tdps-mn_updater-16.04.sh
+sudo chmod +x tdps-mn_updater-16.04.sh
+./tdps-mn_updater-16.04.sh
+```
+***
+
+For **Ubuntu 18.04**
+```
+wget -q https://raw.githubusercontent.com/tdpsdevextreme/MasterNodeSetup/master/tdps-mn_updater-18.04.sh
+sudo chmod +x tdps-mn_updater-18.04.sh
+./tdps-mn_updater-18.04.sh
+```
+***
