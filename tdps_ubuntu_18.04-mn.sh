@@ -1,5 +1,5 @@
 #!/bin/bash
-# TradePlusCoin Masternode Setup Script V1 for Ubuntu 18.04 LTS
+# TradePlusCoin Masternode Setup Script V2 for Ubuntu 18.04 LTS
 #
 # Script will attempt to autodetect primary public IP address
 # and generate masternode private key unless specified in command line
@@ -56,7 +56,7 @@ fi
 genkey=$1
 clear
 
-echo -e "${GREEN} ------- TradePlusCoin MASTERNODE INSTALLER v1.0.0--------+
+echo -e "${GREEN} ------- TradePlusCoin MASTERNODE INSTALLER v2.0.0--------+
  |                                                  |
  |                                                  |::
  |       The installation will install and run      |::
@@ -122,41 +122,6 @@ sudo apt-get -y install libminiupnpc-dev
 sudo apt-get install -y unzip libzmq3-dev build-essential libssl-dev libboost-all-dev libqrencode-dev libminiupnpc-dev libboost-system1.58.0 libboost1.58-all-dev libdb4.8++ libdb4.8 libdb4.8-dev libdb4.8++-dev libevent-pthreads-2.0-5 -y
    fi
 
-#Network Settings
-echo -e "${GREEN}Installing Network Settings...${NC}"
-{
-sudo apt-get install ufw -y
-} &> /dev/null
-echo -ne '[##                 ]  (10%)\r'
-{
-sudo apt-get update -y
-} &> /dev/null
-echo -ne '[######             ] (30%)\r'
-{
-sudo ufw default deny incoming
-} &> /dev/null
-echo -ne '[#########          ] (50%)\r'
-{
-sudo ufw default allow outgoing
-sudo ufw allow ssh
-} &> /dev/null
-echo -ne '[###########        ] (60%)\r'
-{
-sudo ufw allow $PORT/tcp
-sudo ufw allow $RPC/tcp
-} &> /dev/null
-echo -ne '[###############    ] (80%)\r'
-{
-sudo ufw allow 22/tcp
-sudo ufw limit 22/tcp
-} &> /dev/null
-echo -ne '[#################  ] (90%)\r'
-{
-echo -e "${YELLOW}"
-sudo ufw --force enable
-echo -e "${NC}"
-} &> /dev/null
-echo -ne '[###################] (100%)\n'
 
 #Generating Random Password for  JSON RPC
 rpcuser=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
@@ -184,8 +149,8 @@ fi
 #Installing Daemon
 cd ~
 rm -rf /usr/local/bin/tradeplus_coin*
-wget https://github.com/tdpsdevextreme/TradePlusCoin/releases/download/v1.0/TradePlus-1.0-daemon-ubuntu_18.04.tar.gz
-tar -xzvf TradePlus-1.0-daemon-ubuntu_18.04.tar.gz
+wget https://github.com/tdpsdevextreme/TradePlusCoin/releases/download/v2.0/TradePlus-2.0-daemon-ubuntu_18.04.tar.gz
+tar -xzvf TradePlus-2.0-daemon-ubuntu_18.04.tar.gz
 sudo chmod -R 755 tradeplus_coin-cli
 sudo chmod -R 755 tradeplus_coind
 cp -p -r tradeplus_coind /usr/local/bin
